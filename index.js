@@ -56,19 +56,13 @@ const questions = [
 
 // TODO: Create a function to write README file
 // function writeToFile(fileName, data) {}
-
-fs.writeFile('./README.md', data, (err) => {
+fs.writeFile('README.md', readme, 
 	// If there is any error in writing to the file, return
-	if (err) {
-		console.error(err)
-		return
-	}
-
-	// Log this message if the file was written to successfully
-	console.log('wrote to file successfully')
-})
-
-
+	(err) => {
+		if (err) throw err;
+    console.log('wrote to file successfully');
+  }); // Log this message if the file was written to successfully
+ 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
